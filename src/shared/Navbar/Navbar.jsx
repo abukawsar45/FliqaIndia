@@ -1,68 +1,35 @@
-import { NavLink } from "react-router-dom";
+import useProviders from "../../hooks/useProviders";
+import ActiveLink from './../../utilities/ActiveLink';
 
 
 const Navbar = () => {
+  const { user, logOut } = useProviders();
  const navOptions = (
    <>
      <li className=''>
-       <a>
-         <NavLink to='/'>Home</NavLink>{' '}
-       </a>
+   
+         <ActiveLink to='/'>Home</ActiveLink>{' '}
+     
      </li>
      <li className=' gap-1 '>
-       <NavLink to='menu'>Service</NavLink>{' '}
+       <ActiveLink to='service'>Service</ActiveLink>{' '}
      </li>
      <li className=' gap-1 '>
-       <NavLink to='order/salad'>Portfolio</NavLink>{' '}
+       <ActiveLink to='portfolio'>Portfolio</ActiveLink>{' '}
      </li>
      <li className=' gap-1 '>
-       <NavLink to='secret'>Community</NavLink>{' '}
+       <ActiveLink to='community'>Community</ActiveLink>{' '}
      </li>
      <li className=' gap-1 '>
-       <NavLink to='secret'>Blog</NavLink>{' '}
+       <ActiveLink to='blog'>Blog</ActiveLink>{' '}
      </li>
-     {/* <li>
-       <NavLink className='btn gap-2 mr-2' to='/dashboard'>
-         <>
-           <FaShoppingCart className='text-xl' />
-           <div className='badge badge-secondary'>
-             +{cart ? cart.length : 0}
-           </div>
-         </>
-       </NavLink>{' '}
-     </li> */}
-     {/* {user ? (
-       <>
-         <li>
-           <button onClick={handleLogOut} className='btn btn-danger'>
-             LogOut
-           </button>{' '}
-         </li>
-       </>
-     ) : (
-       <>
-         <li className=' gap-1 '>
-           <NavLink to='signUp'>SignUp</NavLink>{' '}
-         </li>
-         <li className=' gap-1 '>
-           <NavLink to='login'>Login</NavLink>{' '}
-         </li>
-       </>
-     )}
-     {user?.photoURL && (
-       <div className='tooltip tooltip-bottom ' data-tip={user?.displayName}>
-         <img
-           src={user?.photoURL}
-           className='w-12 h-12 ml-2 online rounded-full bg-slate-400 object-cover '
-           alt=''
-         />
-       </div>
-     )} */}
+    
+    
    </>
  );
 
  return (
-   <div className='navbar fixed z-10 bg-opacity-50 text-white max-w-screen-xl   bg-lime-500'>
+   <div className='navbar fixed  bg-opacity-50 text-white max-w-screen-xl   bg-lime-500'>
      <div className='navbar-start'>
        <div className='dropdown'>
          <label tabIndex={0} className='btn btn-ghost lg:hidden'>
@@ -80,7 +47,6 @@ const Navbar = () => {
                d='M4 6h16M4 12h8m-8 6h16'
              />
            </svg>
-           
          </label>
          <ul
            tabIndex={0}
@@ -96,8 +62,39 @@ const Navbar = () => {
      <div className='navbar-center hidden lg:flex'>
        <ul className='menu menu-horizontal px-1'>{navOptions}</ul>
      </div>
-     <div className='navbar-end'>
-       <a className='btn'>Get started</a>
+     <div className='navbar-end pr-5'>
+       <ul className='menu-horizontal '>
+         {user ? (
+           <>
+             <li className='gap-1'>
+               <button onClick={() => logOut()} className='btn btn-danger '>
+                 LogOut
+               </button>{' '}
+             </li>
+           </>
+         ) : (
+           <>
+             <li className=' gap-1 mr-5'>
+               <ActiveLink to='signUp'>Sign Up</ActiveLink>{' '}
+             </li>
+             <li className=' gap-1 '>
+               <ActiveLink to='signIn'>Sign In</ActiveLink>{' '}
+             </li>
+           </>
+         )}
+         {user?.photoURL && (
+           <div
+             className='tooltip tooltip-bottom '
+             data-tip={user?.displayName}
+           >
+             <img
+               src={user?.photoURL}
+               className='w-12 h-12 ml-2 online rounded-full bg-slate-400 object-cover '
+               alt=''
+             />
+           </div>
+         )}
+       </ul>
      </div>
    </div>
  );

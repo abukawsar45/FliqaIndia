@@ -29,7 +29,7 @@ const SocialLogin = () => {
            onClick={handleGoogleLogin}
            className='flex  btn btn-outline group btn-info  '
          >
-           {/* <FcGoogle className='text-2xl mr-2' />{' '} */}
+           <FcGoogle className='text-2xl mr-2' />{' '}
            <span className='text-black group-hover:text-white'>
              Sign in With Google
            </span>
