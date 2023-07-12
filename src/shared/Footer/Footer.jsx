@@ -8,6 +8,16 @@ const Footer = () => {
     <footer>
       <div className='grid grid-cols-1 md:grid-cols-2 bg-neutral text-neutral-content'>
         <div className='bg-slate-600 p-10 flex flex-col md:flex-row justify-evenly'>
+          <div className='flex flex-col justify-center'>
+            <Link to='/' className='text-3xl font-serif mb-4'>Fliqa India</Link>
+            <Link to='/'>
+              <img
+                className='w-32  rounded-lg'
+                src='https://i.ibb.co/zrhtykN/company-logo.png'
+                alt=''
+              />
+            </Link>
+          </div>
           <div className='flex flex-col justify-start'>
             <span className='footer-title'>Best Teching Home</span>
             <Link className=''>About us</Link>
@@ -91,10 +101,7 @@ const Footer = () => {
       </div>
       <div className='footer footer-center p-4  bg-gray-800 text-white'>
         <div>
-          <p>
-            Copyright © 2023 - All right reserved by ACME Industries
-            Ltd
-          </p>
+          <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
         </div>
       </div>
     </footer>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useProviders from "../../hooks/useProviders";
 import ActiveLink from './../../utilities/ActiveLink';
 
@@ -29,7 +30,7 @@ const Navbar = () => {
  );
 
  return (
-   <div className='navbar fixed  bg-opacity-50 text-white max-w-screen-xl   bg-lime-500'>
+   <div className='navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-black text-white'>
      <div className='navbar-start'>
        <div className='dropdown'>
          <label tabIndex={0} className='btn btn-ghost lg:hidden'>
@@ -55,9 +56,9 @@ const Navbar = () => {
            {navOptions}
          </ul>
        </div>
-       <a className='btn btn-ghost font-serif normal-case text-xl'>
-         BISTRO BOSS
-       </a>
+       <Link to='/'>
+         <img className="w-24 rounded-s-3xl rounded-e-3xl object-cover " src='https://i.ibb.co/zrhtykN/company-logo.png' alt='' />
+       </Link>
      </div>
      <div className='navbar-center hidden lg:flex'>
        <ul className='menu menu-horizontal px-1'>{navOptions}</ul>
